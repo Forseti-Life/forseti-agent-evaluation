@@ -1,7 +1,6 @@
-<!-- AUTOMATION VALIDATION: 2026-04-23 - automation of development confirmed for this repo -->
 # Agent Evaluation Module
 
-**Last Updated:** February 6, 2026
+Standalone Drupal module repo for evaluating entities with the Agent Power Framework.
 
 ## Overview
 
