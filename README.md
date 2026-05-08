@@ -6,6 +6,16 @@ Standalone Drupal module repo for evaluating entities with the Agent Power Frame
 
 The Agent Evaluation module enables AI-powered evaluation of entities (AI systems, organizations, platforms, individuals) using the comprehensive Agent Power Framework. It leverages the AI Conversation module to create interactive evaluations across 30 sub-dimensions organized into 5 main power dimensions.
 
+## Bedrock integration points
+
+This repo contains a direct Bedrock client path in addition to its higher-level `ai_conversation` dependency:
+
+- `src/Service/AIApiService.php` builds an AWS `BedrockRuntime` client and issues the module's direct `invokeModel()` requests.
+- The main execution entry in that service is `sendMessage()`, which assembles framework context, applies the configured model, and parses the Bedrock response into evaluation text.
+- `src/Service/AgentEvaluationService.php` owns the evaluation workflow and node creation path, while `AIApiService.php` is the concrete Bedrock call surface when this module executes model requests itself.
+
+For Bedrock request shape, credentials, model selection, or response parsing changes in this repository, begin with `src/Service/AIApiService.php`.
+
 ## Agent Power Framework
 
 The framework evaluates entities across **5 main dimensions**, each containing **6 sub-dimensions** (30 total):
