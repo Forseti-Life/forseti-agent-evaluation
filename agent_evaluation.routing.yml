@@ -61,7 +61,6 @@ agent_evaluation.send_message:
     _controller: '\Drupal\agent_evaluation\Controller\ChatController::sendMessage'
   requirements:
     _permission: 'use ai conversation'
-    _csrf_token: 'TRUE'
 
 agent_evaluation.get_stats:
   path: '/ai-conversation/stats'
